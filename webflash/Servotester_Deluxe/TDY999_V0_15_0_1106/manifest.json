@@ -1,0 +1,14 @@
+{
+    "name": "Servotester_Deluxe 1106 V0.15.0",
+    "new_install_prompt_erase": true,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          { "path": "Servotester_Deluxe_TDY999_V0_15_0_1106.bin", "offset": 65536 },
+		  { "path": "bootloader.bin", "offset": 4096 },
+		  { "path": "partitions.bin", "offset": 32768 }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,14 @@
+{
+    "name": "Kenworth W900A V8, TAMIYA 3 speed, Flysky IBUS 9.12-beta.4",
+    "new_install_prompt_erase": true,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          { "path": "firmware.bin", "offset": 65536 },
+		  { "path": "bootloader.bin", "offset": 4096 },
+		  { "path": "partitions.bin", "offset": 32768 }
+        ]
+      }
+    ]
+  }
