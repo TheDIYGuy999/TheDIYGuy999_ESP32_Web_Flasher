@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="favicon.png">
   <title>TheDIYGuy999 Web Flasher</title>
   <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
-  ></script>
+  </script>
   <style>
     body {
       font-family: Verdana, Helvetica, sans-serif;
@@ -4576,13 +4576,13 @@
 
 
       <script>
-          function setManifest() {
-            var sel = document.getElementById('ver');
-            var opt = sel.options[sel.selectedIndex];
-            var m = opt.dataset.manifest;
-            var me = opt.dataset.ethernet;
-            document.getElementById('inst').setAttribute('manifest', m);
-          }
+        function setManifest() {
+          var sel = document.getElementById('ver');
+          var opt = sel.options[sel.selectedIndex];
+          var m = opt.dataset.manifest;
+          var me = opt.dataset.ethernet;
+          document.getElementById('inst').setAttribute('manifest', m);
+        }
 
         function checkSupported() {
           if (document.getElementById('inst').hasAttribute('install-unsupported')) unsupported();
