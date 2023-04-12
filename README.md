@@ -1,1 +1,3 @@
-TheDIYGuy999_ESP32_Web_Flash
+TheDIYGuy999 ESP32 Web Flasher
+
+for testing only!
