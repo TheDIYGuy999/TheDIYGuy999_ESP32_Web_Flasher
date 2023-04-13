@@ -1,0 +1,12 @@
+{
+    "name": "Test",
+    "new_install_prompt_erase": true,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+		  { "path": "flash_dump.bin", "offset": 0 }
+        ]
+      }
+    ]
+  }
