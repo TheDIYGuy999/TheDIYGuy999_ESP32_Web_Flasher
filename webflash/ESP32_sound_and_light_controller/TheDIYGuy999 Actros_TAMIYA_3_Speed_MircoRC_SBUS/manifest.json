@@ -1,0 +1,14 @@
+{
+    "name": "TheDIYGuy999 Actros, TAMIYA 3 speed, MicroRC SBUS",
+    "new_install_prompt_erase": true,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          { "path": "firmware.bin", "offset": 65536 },
+		  { "path": "bootloader.bin", "offset": 4096 },
+		  { "path": "partitions.bin", "offset": 32768 }
+        ]
+      }
+    ]
+  }
