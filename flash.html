@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content='width=device-width' name='viewport'>
-  <meta name="theme-color" content="#222222">
-  <link rel="shortcut icon" href="favicon.png">
+  <link rel="shortcut icon" href="logo.png">
   <title>TheDIYGuy999 Web Flasher</title>
   <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
   </script>
@@ -43,6 +42,24 @@
       color: var(--c-f);
     }
 
+    /*Menu buttons*/
+    .button {
+      outline: none;
+      cursor: pointer;
+      padding: 10px;
+      margin: 10px;
+      font-family: Verdana, Helvetica, sans-serif;
+      font-size: 19px;
+      color: #0009ff;
+      /* Button color */
+      color: #0009ff;
+      /* Button text color */
+      border: 3px solid black;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    /*Flash Buttons*/
     .btn {
       outline: none;
       cursor: pointer;
@@ -61,7 +78,7 @@
     }
 
     img {
-      width: 300px;
+      width: 250px;
       max-width: 80%;
       border-radius: 5px;
       image-rendering: pixelated;
@@ -132,6 +149,11 @@
 </head>
 
 <body onload="checkSupported()">
+  <div class="button-container">
+    <button class="button" onclick="window.location.href='Index.html'">Home</button>
+    <button class="button" onclick="window.location.href='products.html'">Products & Manuals</button>
+  </div>
+
   <img alt="Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATcAAAE4CAYAAAA+dLTnAAAWc2lDQ1BJQ0MgUHJvZmlsZQAAWIWV
     mAdUE1+XwN+kkpDQQu+hhN577733IgIh9N6bBURFBaVJk6KAShEFpImgUiygAoKIoIhSRERQUUQQ
     VDb6X3G//c7unr3nTOY3d97c3Jn77tx3BwD2AXJkZCiMAYCw8NhoexN9flc3d370DIAADOAAAgiR
@@ -4528,7 +4550,8 @@
             board found?</a></li>
         <li>The programming will take less than 3 minutes</li>
         <li>Power cycle your device</li>
-        <li>Connect to the WiFi network "My_Truck", My_Trailer", "Servotester_Deluxe" (defaults) or similar. The default password is 123456789</li>
+        <li>Connect to the WiFi network "My_Truck", My_Trailer", "Servotester_Deluxe" (defaults) or similar. The default
+          password is 123456789</li>
         <li>Open <a href="http://192.168.4.1" target="_blank">192.168.4.1</a></li>
         <li>Change SSID, password, MAC address, trailer options etc. to fit your needs</a></li>
         <li>Power cycle your device again</li>
