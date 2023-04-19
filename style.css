@@ -28,7 +28,7 @@ body {
 	/* Button color */
 	color: #0009ff;
 	/* Button text color */
-	border: clamp(0.2rem, 0.25vw, 0.3rem) solid black;
+	border: clamp(0.15rem, 0.25vw, 0.3rem) solid black;
 	border-radius: 10px;
 	text-align: center;
   }
