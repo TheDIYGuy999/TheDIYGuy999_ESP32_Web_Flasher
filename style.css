@@ -46,7 +46,7 @@ body {
 	/* Button color */
 	color: #0009ff;
 	/* Button text color */
-	border: clamp(0.15rem, 0.25vw, 0.3rem) solid black;
+	border: clamp(0.15rem, 0.1vw, 0.3rem) solid black;
 	border-radius: 10px;
 	text-align: center;
 }
@@ -55,16 +55,16 @@ body {
 .btn {
 	outline: none;
 	cursor: pointer;
-	padding: 10px;
-	margin: 10px;
-	width: 780px;
+	width: 95%;
+	padding: clamp(0.2rem, 1vw, 1rem);
+	margin: clamp(0.2rem, 1vw, 1rem);
 	font-family: Verdana, Helvetica, sans-serif;
-	font-size: 19px;
-	background-color: #fff;
+	font-size: clamp(0.7rem, 2vw, 2rem);
+	background-color: #ffffff;
 	/* Button color */
 	color: #0009ff;
 	/* Button text color */
-	border: 3px solid black;
+	border: clamp(0.15rem, 0.25vw, 0.3rem) solid black;
 	border-radius: 10px;
 	text-align: center;
   }
@@ -95,8 +95,8 @@ img {
   }
 
   .container {
-	width: 80%;
-	max-width: 800px;
+	width: 90%;
+	
 	margin: auto;
 	border-radius: 5px;
 	box-sizing: border-box;
