@@ -1,0 +1,159 @@
+<head>
+	<meta charset="utf-8">
+  <meta content='width=device-width' name='viewport'>
+  <link rel="shortcut icon" href="pictures/logo.png">
+  <title>TheDIYGuy999 Audio2Header</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+	<script>
+		window.AudioContext = window.AudioContext || window.webkitAudioContext;
+		var context = new AudioContext();
+
+		function audioBufferToText(audioBuffer, normalize, resample, removeNoiseFloor, sampleRate, fileType) {
+			var buffer = audioBuffer.getChannelData(0);
+
+			if (audioBuffer.numberOfChannels > 1) {
+				for (var c = 1; c < audioBuffer.numberOfChannels; c++) {
+					var cb = audioBuffer.getChannelData(c);
+					for (var i = 0; i < length; i++)
+						buffer[i] += cb[i];
+				}
+			}
+
+			if (resample) {
+				var scale = audioBuffer.sampleRate / sampleRate;
+				var length = Math.floor((buffer.length - 1) / scale);
+				var b = new Float32Array(length);
+				for (var i = 0; i < length; i++) {
+					p = Math.floor(i * scale);
+					b[i] = buffer[p];
+				}
+				buffer = b;
+			}
+			else
+				sampleRate = audioBuffer.sampleRate;
+
+			var snippet = document.getElementById("fileTypeSelect").value;
+			var text = "const unsigned int " + snippet + "ampleRate = " + sampleRate + ";\r\n";
+			text += "const unsigned int " + snippet + "ampleCount = " + buffer.length + ";\r\n";
+			if (snippet == "hornS") // Optional variables for horn
+			{
+				text += "#define HORN_LOOP\r\n";
+				text += "const unsigned int hornLoopBegin = 0; // Adjust start of loop manually\r\n";
+				text += "const unsigned int hornLoopEnd = " + buffer.length + "; // Adjust end of loop manually\r\n";
+			}
+			if (snippet == "sirenS") // Optional variables for siren
+			{
+				text += "#define SIREN_LOOP\r\n";
+				text += "const unsigned int sirenLoopBegin = 0; // Adjust start of loop manually\r\n";
+				text += "const unsigned int sirenLoopEnd = " + buffer.length + "; // Adjust end of loop manually\r\n";
+			}
+			text += "const signed char " + snippet + "amples[] = {"
+
+			var max = 0;
+			if (normalize) {
+				for (var i = 0; i < buffer.length; i++)
+					max = Math.max(Math.abs(buffer[i]), max);
+			}
+			if (max == 0) max = 1;
+
+			// Array output
+			var out = 0;
+			for (var i = 0; i < buffer.length; i++) {
+				out = Math.round(buffer[i] / max * 127);
+				if (removeNoiseFloor) //removeNoiseFloor
+				{
+					if (out < 2 && out > -2) out = 0;
+				}
+				if ((i & 15) == 0) text += "//" + i + "\r\n"; // new line with sample number
+				text += out + ", ";
+			}
+			text += "};\r\n";
+			return text;
+		}
+		//isn't that simple code awesome? ...that's bitluni style
+
+		function convert(event) {
+			var audioBuffer = null;
+			var reader = new FileReader();
+			var file = event.target.files[0];
+			reader.onload = function () {
+				context.decodeAudioData(reader.result, function (buffer) {
+					var link = document.createElement("a");
+					link.download = file.name.split('.', 1)[0] + ".h";
+					link.href = URL.createObjectURL(new Blob(
+						[audioBufferToText(buffer, document.getElementById("normalize").checked, document.getElementById("resample").checked, document.getElementById("removeNoiseFloor").checked, document.getElementById("samplerate").value)], { type: "text/plain" }));
+					document.body.appendChild(document.createElement("br"));
+					document.body.appendChild(link);
+					link.innerHTML = link.download;
+					link.click();
+					//document.body.removeChild(link);
+					event.target.value = "";
+				}, function () {
+					//error
+				});
+			}
+			reader.readAsArrayBuffer(file);
+		}
+	</script>
+
+</head>
+
+<body style="font-family: arial">
+	<h1><a href="https://youtube.com/bitlunislab">bitluni</a>'s audio to header converter</h1>
+	Modified by <a href="https://www.youtube.com/channel/UCqWO3PNCSjHmYiACDMLr23w">TheDIYGuy999</a> for my <a
+		href="https://github.com/TheDIYGuy999/Rc_Engine_Sound_ESP32">ESP32 RC Engine Sound & Light Controller</a>
+	<br><br>
+
+	<h4>1. Select the export file format (it is recommended to leave the settings as they are):</h4>
+	<input id="normalize" type="checkbox" unchecked>normalize (Use this, if your wav file does not use the entire
+	dynamic range and is too silent)
+	<br>
+	<input id="resample" type="checkbox" checked>resample
+	<input class="button" id="samplerate" value="22050">Hz (22050 Hz is standard)
+	<br><br>
+
+	<h4>2. Select noise reduction options:</h4>
+	<input id="removeNoiseFloor" type="checkbox" unchecked>remove noise floor (recommended for sounds with silent
+	passages)
+	<br><br>
+
+	<h4>3. Select the export file type you want (for idle, rev, horn etc. sound):</h4>
+	<select name="fileTypeSelect" id="fileTypeSelect" class="button">
+		<option value="startS">start (Anlasser)</option>
+		<option selected value="s">idle (Leerlauf)</option>
+		<option value="revS">rev (hohe Drehzahl)</option>
+		<option value="knockS">knock (Klopfen)</option>
+		<option value="turboS">turbo (Turbo)</option>
+		<option value="wastegateS">wastegate (Blowoff)</option>
+		<option value="chargerS">charger (Lader)</option>
+		<option value="fanS">fan (Luefter)</option>
+		<option value="shiftingS">shifting (Schaltung)</option>
+		<option value="brakeS">brake (Bremse loesen)</option>
+		<option value="parkingBrakeS">parkingBrake (Parkbremse)</option>
+		<option value="jakeBrakeS">jakeBrake (Motorbremse)</option>
+		<option value="indicatorS">indicator (Blinker)</option>
+		<option value="hornS">horn (Hupe)</option>
+		<option value="sirenS">siren (Sirene)</option>
+		<option value="couplingS">coupling (Ankoppeln)</option>
+		<option value="uncouplingS">uncoupling (Abkoppeln)</option>
+		<option value="sound1S">sound1 (Sound 1)</option>
+		<option value="hydraulicPumpS">hydraulicPump (Hydraulikpumpe)</option>
+		<option value="hydraulicFlowS">hydraulicFlow (Hydraulikfluss)</option>
+		<option value="trackRattleS">trackRattle (Raupenklappern)</option>
+		<option value="bucketRattleS">bucketRattle (Schaufelklappern)</option>
+		<option value="tireSquealS">tireSqueal (Reifenquietschen)</option>
+		<option value="outOfFuelS">outOfFuel (kein Treibstoff)</option>
+	</select>
+	<br><br>
+
+	<h4>4. Open the unsigned 8bit PCM, 22050Hz wav file, which was previously made with Audacity:</h4>
+	<input class="button" type="file" onchange="convert(event)"><br><br>
+
+	<h4>5. Your .h file is generated and downloaded.</h4>
+	-> Save it in /vehicles/sounds<br>
+	-> Add link to your vehicle file
+
+</body>
+
+</html>

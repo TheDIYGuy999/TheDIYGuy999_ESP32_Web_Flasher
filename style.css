@@ -67,43 +67,49 @@ body {
 	border: clamp(0.15rem, 0.25vw, 0.3rem) solid black;
 	border-radius: 10px;
 	text-align: center;
-  }
+}
+
+input[type="checkbox"] {
+	cursor: pointer;
+	zoom: 1.5;
+}
+
 
 img {
 	border-radius: 5px;
-  }
+}
 
-  a {
+a {
 	color: #111;
 	cursor: pointer;
 	text-decoration: underline;
-  }
+}
 
-  ol {
+ol {
 	margin: auto;
 	text-align: left;
 	display: inline-block;
-  }
+}
 
-  li::marker {
+li::marker {
 	text-decoration: bold;
 	color: #09f;
-  }
+}
 
-  li {
+li {
 	margin: 5px;
-  }
+}
 
-  .container {
+.container {
 	width: 90%;
-	
+
 	margin: auto;
 	border-radius: 5px;
 	box-sizing: border-box;
 	background-color: #007eff;
 	overflow: hidden;
-  }
+}
 
-  .inst-button {
+.inst-button {
 	padding: 5px 0;
-  }
+}
