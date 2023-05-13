@@ -1,0 +1,14 @@
+{
+    "name": "Test2",
+    "new_install_prompt_erase": true,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          { "path": "KenworthW900ACAT3408.bin", "offset": 65536 },
+		  { "path": "bootloader_dio_80m.bin", "offset": 4096 },
+		  { "path": "KenworthW900ACAT3408.partitions.bin", "offset": 32768 }
+        ]
+      }
+    ]
+  }
