@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content='width=device-width' name='viewport'>
+  <link rel="shortcut icon" href="pictures/logo.png">
+  <title>TheDIYGuy999 Web Flasher</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="module" src="https://unpkg.com/esp-web-tools@9.2.1/dist/web/install-button.js?module">
+  </script>
+
+</head>
+
+<body onload="readDefaults()">
+  <div class="button-container">
+    <button class="button" onclick="window.location.href='index.html'">Home</button>
+    <button class="button" onclick="window.location.href='products.html'">Products & Manuals</button>
+    <button class="button" onclick="window.location.href='https://www.youtube.com/channel/UCqWO3PNCSjHmYiACDMLr23w'"
+      target=”_blank”>YouTube</button>
+    <button class="button" onclick="window.location.href='Audio2Header.html'" target=”_blank”>Audio2Header</button>
+
+  </div>
+
+  <img src="pictures/logo.png" alt="Logo" width="250">
+
+
+  <div class="main">
+    <h2>Welcome to the TheDIYGuy999 ESP32 Web Flasher!</h2>
+
+    <p>Neopixel mode:</p>
+    <select name="select1" class="button" id="select1Input" onchange="select1Change(this)">
+
+      <option value="1"> 1 = Demo (don't use it)</option>
+      <option value="2"> 2 = Knight Rider scanner animation for 8 LED </option>
+      <option value="3"> 3 = Bluelight animation for 8 LED </option>
+      <option value="4"> 4 = Union Jack United Kingdom animation for 8 LED</option>
+      <option value="5"> 5 = B33lz3bub Austria animation for 3 LED</option>
+    </select>
+
+    <script> function select1Change(pos) {
+        //var select1Value = document.getElementById("select1Input").value; // No error
+        var select1Value = pos.value; // OK
+        console.log(select1Value);
+        document.getElementById("select1Input").innerHTML = select1Value;
+        //var xhr = new XMLHttpRequest();
+        //xhr.open('GET', "/?Select1=" + select1Value + "&", true);
+        //xhr.send();
+      } </script>
+
+
+
+    <select id="comboA" onchange="getComboA(this)">
+      <option value="">Select combo</option>
+      <option value="Value1">Text1</option>
+      <option value="Value2">Text2</option>
+      <option value="Value3">Text3</option>
+    </select>
+
+    <script>
+
+      function getComboA(selectObject) {
+        var value = selectObject.value;
+        console.log(value);
+      }
+
+
+      function readDefaults() {
+        document.getElementById("select1Input").value = "5";
+        //document.getElementById("select1Input").selectedIndex = "2";
+        
+      };
+
+
+    </script>
+
+  </div>
+
+
+</body>
+
+</html>
