@@ -38,7 +38,7 @@
             board found?</a></li>
         <li>The programming will take less than 3 minutes</li>
         <li>Power cycle your device</li>
-        <li>Connect to the WiFi network "My_Truck", My_Trailer", "Servotester_Deluxe" (defaults) or similar. The default
+        <li>Connect to the WiFi network "My_Truck", My_Trailer", "Servotester_Deluxe" (defaults, if WiFi is available) or similar. The default
           password is 123456789</li>
         <li>Open <a href="http://192.168.4.1" target="_blank">192.168.4.1</a></li>
         <li>Change SSID, password, MAC address, trailer options etc. to fit your needs</a></li>
@@ -53,6 +53,9 @@
         <select id="ver" class="btn" onchange="setManifest()">
           <optgroup label="ESP32 Sound and Light Controller">
             <option
+              data-manifest="webflash/ESP32_sound_and_light_controller/Burnie222_Cat_973K_tracked_loader_FLYSKY_IBUS/manifest.json">
+              Burnie222 Cat 973K tracked loader, Flysky FS-i6S IBUS</option>
+              <option
               data-manifest="webflash/ESP32_sound_and_light_controller/Kenworth_W900A_CAT3408_TAMIYA_3_Speed_FLYSKY_IBUS_9.12-beta.4/manifest.json">
               Kenworth W900A V8, TAMIYA 3 speed, Flysky IBUS 9.12-beta.4</option>
             <option
