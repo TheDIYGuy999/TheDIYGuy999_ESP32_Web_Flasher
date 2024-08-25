@@ -53,6 +53,9 @@
         <select id="ver" class="btn" onchange="setManifest()">
           <optgroup label="ESP32 Sound and Light Controller">
             <option
+              data-manifest="webflash/ESP32_sound_and_light_controller/Burnie222_Cat_730_ADT_FLYSKY_IBUS/manifest.json">
+              Burnie222 Cat 730 ADT, Flysky FS-i6S IBUS</option>
+              <option
               data-manifest="webflash/ESP32_sound_and_light_controller/Burnie222_Cat_973K_tracked_loader_FLYSKY_IBUS/manifest.json">
               Burnie222 Cat 973K tracked loader, Flysky FS-i6S IBUS</option>
               <option
@@ -115,6 +118,25 @@
         </esp-web-install-button><br>
 
       </div>
+
+
+      <?php
+      $dir = 'pictures';
+      $files = scandir($dir);
+      $ext = '.png';
+      foreach ($files as $img) {
+          if ( substr_compare($img, $ext, -strlen($ext), strlen($ext)) === 0 ) {
+              ?>
+                  <h2 style="font-family: monospace;"><?=$img?></h2>
+                  <div style="text-align: center; margin-bottom: 100px;">
+                      <img src="img/<?=$img?>">
+                  </div>
+              <?
+          }
+      }
+  ?>
+
+
       <br>Order your Hardware <a
         href="https://www.pcbway.com/project/shareproject/Arduino_RC_engine_sound_light_controller_for_ESP32_a9334731.html"
         target="_blank">here</a><br>

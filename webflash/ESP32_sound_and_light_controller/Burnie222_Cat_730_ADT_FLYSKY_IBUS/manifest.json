@@ -1,0 +1,14 @@
+{
+    "name": "Burnie222 Cat 730 ADT, Flysky FS-i6S IBUS",
+    "new_install_prompt_erase": true,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          { "path": "firmware.bin", "offset": 65536 },
+		  { "path": "bootloader.bin", "offset": 4096 },
+		  { "path": "partitions.bin", "offset": 32768 }
+        ]
+      }
+    ]
+  }
