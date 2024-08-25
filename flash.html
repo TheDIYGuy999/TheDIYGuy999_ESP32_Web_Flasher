@@ -16,9 +16,10 @@
   <div class="button-container">
     <button class="button" onclick="window.location.href='index.html'">Home</button>
     <button class="button" onclick="window.location.href='products.html'">Products & Manuals</button>
-    <button class="button" onclick="window.location.href='https://www.youtube.com/channel/UCqWO3PNCSjHmYiACDMLr23w'"target=”_blank”>YouTube</button>
-    <button class="button" onclick="window.location.href='Audio2Header.html'"target=”_blank”>Audio2Header</button>
-      
+    <button class="button" onclick="window.location.href='https://www.youtube.com/channel/UCqWO3PNCSjHmYiACDMLr23w'"
+      target=”_blank”>YouTube</button>
+    <button class="button" onclick="window.location.href='Audio2Header.html'" target=”_blank”>Audio2Header</button>
+
   </div>
 
   <img src="pictures/logo.png" alt="Logo" width="250">
@@ -38,7 +39,8 @@
             board found?</a></li>
         <li>The programming will take less than 3 minutes</li>
         <li>Power cycle your device</li>
-        <li>Connect to the WiFi network "My_Truck", My_Trailer", "Servotester_Deluxe" (defaults, if WiFi is available) or similar. The default
+        <li>Connect to the WiFi network "My_Truck", My_Trailer", "Servotester_Deluxe" (defaults, if WiFi is available)
+          or similar. The default
           password is 123456789</li>
         <li>Open <a href="http://192.168.4.1" target="_blank">192.168.4.1</a></li>
         <li>Change SSID, password, MAC address, trailer options etc. to fit your needs</a></li>
@@ -55,10 +57,10 @@
             <option
               data-manifest="webflash/ESP32_sound_and_light_controller/Burnie222_Cat_730_ADT_FLYSKY_IBUS/manifest.json">
               Burnie222 Cat 730 ADT, Flysky FS-i6S IBUS</option>
-              <option
+            <option
               data-manifest="webflash/ESP32_sound_and_light_controller/Burnie222_Cat_973K_tracked_loader_FLYSKY_IBUS/manifest.json">
               Burnie222 Cat 973K tracked loader, Flysky FS-i6S IBUS</option>
-              <option
+            <option
               data-manifest="webflash/ESP32_sound_and_light_controller/Kenworth_W900A_CAT3408_TAMIYA_3_Speed_FLYSKY_IBUS_9.12-beta.4/manifest.json">
               Kenworth W900A V8, TAMIYA 3 speed, Flysky IBUS 9.12-beta.4</option>
             <option
@@ -86,8 +88,8 @@
             <option data-manifest="webflash/ESP32_sound_and_light_controller/Test/manifest.json">
               Test (don't use it)</option>
 
-              <option data-manifest="webflash/ESP32_sound_and_light_controller/Test2/manifest.json">
-                Test2 (don't use it)</option>
+            <option data-manifest="webflash/ESP32_sound_and_light_controller/Test2/manifest.json">
+              Test2 (don't use it)</option>
 
             <option
               data-manifest="webflash/ESP32_sound_and_light_controller/TheDIYGuy999 King_Hauler_TAMIYA_3_Speed_MircoRC_SBUS/manifest.json">
@@ -118,23 +120,10 @@
         </esp-web-install-button><br>
 
       </div>
-
-
-      <?php
-      $dir = 'pictures';
-      $files = scandir($dir);
-      $ext = '.png';
-      foreach ($files as $img) {
-          if ( substr_compare($img, $ext, -strlen($ext), strlen($ext)) === 0 ) {
-              ?>
-                  <h2 style="font-family: monospace;"><?=$img?></h2>
-                  <div style="text-align: center; margin-bottom: 100px;">
-                      <img src="img/<?=$img?>">
-                  </div>
-              <?
-          }
-      }
-  ?>
+      
+      <br>
+      <img src="pictures/CAT730ChannelSetup.png" alt="Logo" width="80%">
+      <img src="pictures/CAT973ChannelSetup.png" alt="Logo" width="80%">
 
 
       <br>Order your Hardware <a
